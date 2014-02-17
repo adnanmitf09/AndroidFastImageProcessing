@@ -165,6 +165,8 @@ public class VideoFileEndpoint extends GLRenderer implements GLTextureInputRende
             
             stopRecorder = false;
             
+            mVFEListener.onVideoRecorded(filePath+"/fiptmp.mp4");
+            
             recorder = null;
 		}
 		
@@ -329,7 +331,7 @@ public class VideoFileEndpoint extends GLRenderer implements GLTextureInputRende
         recording = true;
     }
 
-    public String stopRecording() {
+    public void stopRecording() {
 
         runAudioThread = false;
 
@@ -339,7 +341,6 @@ public class VideoFileEndpoint extends GLRenderer implements GLTextureInputRende
         
         recording = false;
         
-        return filePath+"/fiptmp.mp4";
     }
     
     public void takePhoto(){
