@@ -209,7 +209,7 @@ public class VideoFileEndpoint extends GLRenderer implements GLTextureInputRende
 	                    recorder.setTimestamp(t);
 	                }
 	                recorder.record(yuvIplimage);
-	                yuvIplimage.getIntBuffer().clear();
+	                //yuvIplimage.getIntBuffer().clear();
 	            } catch (FFmpegFrameRecorder.Exception e) {
 	                e.printStackTrace();
 	            }*/
