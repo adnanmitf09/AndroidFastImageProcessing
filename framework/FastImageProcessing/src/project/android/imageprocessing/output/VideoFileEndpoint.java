@@ -191,16 +191,16 @@ public class VideoFileEndpoint extends GLRenderer implements GLTextureInputRende
 		super.drawFrame();
 		
 		if(recording){
-	/*		int[] pixels = new int[getWidth()*getHeight()];
+			int[] pixels = new int[getWidth()*getHeight()];
 			IntBuffer intBuffer = IntBuffer.wrap(pixels);
 			intBuffer.position(0);
 			GLES20.glReadPixels(0, 0, getWidth(), getHeight(), GLES20.GL_RGBA, GLES20.GL_UNSIGNED_BYTE, intBuffer);
 	
 			GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, 0);
-			*/
+			
 	        /* get video data */
 	        if (yuvIplimage != null && recording) {
-	        /*	yuvIplimage.getIntBuffer().put(pixels);
+	        	yuvIplimage.getIntBuffer().put(pixels);
 	        	//yuvIplimage.getByteBuffer().put(data);
 	
 	            try {
@@ -212,7 +212,7 @@ public class VideoFileEndpoint extends GLRenderer implements GLTextureInputRende
 	                //yuvIplimage.getIntBuffer().clear();
 	            } catch (FFmpegFrameRecorder.Exception e) {
 	                e.printStackTrace();
-	            }*/
+	            }
 	        }
 		}else if(takePhoto){
 			takePhoto = false;

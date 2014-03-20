@@ -4,6 +4,21 @@ import java.io.PrintWriter;import java.io.StringWriter;import javax.microedit
 	private int currentFacing;	/**	 * Creates a CameraPreviewInput which captures the camera preview with all the default camera parameters and settings.	 */	public CameraPreviewInput(GLSurfaceView view) {		super();		this.camera = createCamera();		this.view = view;
 		currentFacing = Camera.CameraInfo.CAMERA_FACING_BACK;	}	private void bindTexture() {		GLES20.glActiveTexture(GLES20.GL_TEXTURE0);	    GLES20.glBindTexture(GLES11Ext.GL_TEXTURE_EXTERNAL_OES, texture_in);	}	protected Camera createCamera() {		return Camera.open();	}
 	
+	public void toggleFlashLight() {
+		if(camera==null) return;
+		
+		Parameters p = camera.getParameters();
+		String flashMode = p.getFlashMode();
+
+		if(flashMode==null) return;
+		
+		if(flashMode.equalsIgnoreCase(Parameters.FLASH_MODE_OFF))
+			 p.setFlashMode(Parameters.FLASH_MODE_TORCH);
+		else p.setFlashMode(Parameters.FLASH_MODE_OFF);
+		
+		camera.setParameters(p);
+	}
+	
 	public void switchCamera() {
 		if(currentFacing == Camera.CameraInfo.CAMERA_FACING_BACK)
 			 currentFacing = Camera.CameraInfo.CAMERA_FACING_FRONT;
